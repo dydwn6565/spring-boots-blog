@@ -15,4 +15,9 @@ public class TempControllerTest {
 		
 		return "/home.html";
 	}
+	
+	@GetMapping("/temp/jsp")
+	public String temphome() {
+		return "test";
+	}
 }
