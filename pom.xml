@@ -17,14 +17,15 @@
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+	
 		<!--  added library started -->
 		<!-- 시큐리티 태그 라이브러리 -->
-	<!-- 
-	<dependency>
+	
+	 <dependency>
 	  <groupId>org.springframework.security</groupId>
 	  <artifactId>spring-security-taglibs</artifactId>
 	</dependency>
-	 -->
+	 
 	<!-- JSP 템플릿 엔진 -->
 	<dependency>
 	  <groupId>org.apache.tomcat.embed</groupId>
@@ -35,22 +36,27 @@
 	<dependency>
 	  <groupId>javax.servlet</groupId>
 	  <artifactId>jstl</artifactId>
+	  
 	</dependency>
 <!-- added library ended -->
-
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>jquery</artifactId>
+    <version>1.9.1</version>
+</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
  
- <!-- 
+ 
  
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-  -->
+  
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
