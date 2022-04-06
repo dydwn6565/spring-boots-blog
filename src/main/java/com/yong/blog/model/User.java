@@ -34,9 +34,8 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // follow the numbering strategy of connected DB
 	private int id;// sequence ,auto_increment
 	
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false, length = 100, unique =true)
 	private String username; // id
-	
 	
 	@Column(nullable = false, length = 100) //for hashcode
 	private String password;
@@ -47,6 +46,8 @@ public class User {
 //	@ColumnDefault("'user'") // sholud use '
 	@Enumerated(EnumType.STRING)
 	private RoleType role; // will use enum admin or user
+	
+	private String oauth; //kakao, google
 	
 	@CreationTimestamp // time is inserted to the DB
 	private Timestamp createDate;

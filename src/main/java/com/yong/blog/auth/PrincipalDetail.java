@@ -8,8 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.yong.blog.model.User;
 
+import lombok.Getter;
+
 // sping security take the login request and make the login process and 
 // store the spring security to session storage with UserDetail type object
+@Getter
 public class PrincipalDetail implements UserDetails {
 	
 	private User user; //composition

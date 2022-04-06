@@ -3,6 +3,7 @@ package com.yong.blog.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,6 +23,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 	@Autowired
 	private PrincipalDetailService principalDetailService;
 	
+	
+	@Bean
+	@Override
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		// TODO Auto-generated method stub
+		return super.authenticationManagerBean();
+	}
+
 	@Bean   //loc
 	public BCryptPasswordEncoder encodePWD() {
 //		String encPassword = new BCryptPasswordEncoder().encode(null);
@@ -38,14 +47,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 		http
 		.csrf().disable()   // csrf token inactive
 		.authorizeRequests()
-		.antMatchers("/auth/**","/js/**","/css/**","/image/**","/","/loginForm","/signupForm","/loginProc")
+		.antMatchers("/auth/**","/js/**","/css/**","/image/**","/","/loginForm","/signupForm","/loginProc","/api/**")
 		.permitAll()
 		.anyRequest()
 		.authenticated()
 		.and()
 		.formLogin()
-		.loginPage("/loginForm")
-		.loginProcessingUrl("/loginProc")
+		.loginPage("/auth/loginForm")
+		.loginProcessingUrl("/auth/loginProc")
 		.defaultSuccessUrl("/");
 	}
 }
